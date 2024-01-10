@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+	<!--
+		This file will be opened by the live server, like vscode go live function
+		House Price Information platform project
+		Name :Renbo Lei
+		ID:28265440
+	-->
+<head>
+		<meta name="description" content="D3 zoom to map coordinates">
+		<meta name="keywords" content="D3,JavaScript,map,zoom">
+		<meta name="author" content="Scott Schretzenmaier">
+		<title>Map Zoom</title>
+		<link rel="stylesheet" type="text/css" href="/static/css/style.css">
+
+
+
+
+		<script src="https://d3js.org/d3.v5.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.js"></script>
+		<script src="http://colorbrewer2.org/export/colorbrewer.js"></script>
+
+	
+		
+
+
+</head>
+	<body>
+
+		<div id="box">
+			<div id="tooltip-container">
+				<p id="tooltip-text">请按下您要选择的区域.</p>
+			</div>
+			<div id="tooltip-container1">
+				<p id="tooltip-text1">请按下您要选择的区域.</p>
+			</div>
+
+			<div id="text1">
+				<div id = 'title'>
+					<h1>墨尔本房价信息平台</h1>
+					
+				</div>
+				<div style="text-align: center;">
+					<svg id='svg' style="background-image: linear-gradient(160deg, #072744 20%, #225689 80%); border: 2px solid #ffffff; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+						<!-- 地图数据 -->
+						
+					</svg>
+					<svg id='svg1' style="background-image: linear-gradient(160deg, #072744 20%, #225689 80%); border: 2px solid #ffffff; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+						<!-- 地图数据 -->
+					</svg>
+				</div>
+				
+				
+				
+				
+				<div id="tooltip-description">
+					<h3>地图说明</h3>
+					<hr> <!-- 分割线 -->
+					<p>此地图展示了澳大利亚维多利亚州的郊区分布。通过地图，您可以探索各个郊区，并了解其基本情况。</p>
+					<p>点击任意郊区，您可以查看该区域的详细信息，如房屋类型、犯罪记录等。选中的郊区将以蓝色高亮显示。</p>
+					<p>左下角的蓝色按钮用于展示学校信息。点击此按钮后，所有学校位置将在地图上标记。您可以点击这些标记，获取学校的详细信息。</p>
+					<p><strong>特别提醒：</strong>由于数据源复杂，部分区域可能无法显示信息。这些区域通常显示为 null 或 0，但这不代表实际数据情况。</p>
+					<p>地图上不同的颜色代表了不同的人口密度。深红色表示人口密度最高的区域，而浅色调则代表人口密度较低。通过颜色变化，您可以快速识别各区域的人口分布情况。</p>
+					<p>选择地图上的一个区域后，右侧表格会实时更新该区域的更多细节信息，便于您进行分析和比较。</p>
+				</div>
+				<input type="button" id="showmap" value="School location"></input>
+				
+          
+				<div id="graph1">
+
+					<table  class="objecttable ">
+						<thead>
+							<tr>
+								<th>郊区</th>
+								<th>人口</th>
+								<th>独立屋</th>
+								<th>半独立排屋</th>
+								<th>公寓</th>
+								<th>其他</th>
+								<th>房屋平均价格（美元）</th>
+								<th>已记录的犯罪案件</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Null</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+								<td>0</td>
+
+							</tr>
+						</tbody>
+					</table>
+          
+				</div>
+				<div id = "visual">
+					
+					<div id="tooltip-description3" >
+						<h3>学校类型和数量统计 (2021-2022)</h3>
+						<hr> <!-- 分割线 -->
+						<p>
+							右侧图表显示了该区域各类学校的数量和类型，用柱状图表示。
+							同时，如果区域内的学校信息在数据库中找不到，它将以全零的条形图表示，这并不代表真实数据。
+						</p>
+
+
+							
+					</div>
+					<div id="graph2">
+			
+					</div>
+
+				</div>
+				<div id = "visual1">
+					
+					<div id="tooltip-description3" >
+						<h3>房价趋势分析 (2020-2021年)</h3>
+						<hr> <!-- 分割线 -->
+						<p>右侧的图表记录了该区域从2020年底到2021年全年的房价趋势。<br>
+							当您选择目标郊区后，趋势图将根据不同区域显示的数据实时变化。</p>
+						 <p>如果关于该区域没有信息，将以全零的直线显示，
+							这并不代表真实数据。</p>
+
+
+							
+					</div>
+					<div id="graph3">
+						
+				
+					</div>
+
+				</div>
+
+
+
+
+
+
+			</div>
+		</div>
+		
+		
+	</body>
+    <script src="/static/js/script.js"></script>
+
+</html>
